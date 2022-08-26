@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-sample-deployment
+spec:
+  selector:
+    matchLabels:
+      app: flask-sample
+  template:
+    metadata:
+      labels:
+        app: flask-sample
+    spec:
+      containers:
+        - name: flask-sample
+          image: docker.io/ramu65vishnu/python-docker
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
